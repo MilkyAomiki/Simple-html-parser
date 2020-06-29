@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 /**
  * Main class of the program
@@ -27,13 +28,13 @@ public class Application {
         //Getting an URL and downloading a page
         parser = new Parser();
         while (true)  {
-            System.out.println("\n Enter a Page's URL");
+            System.out.println("\nEnter a Page's URL");
             url = scanner.nextLine();
             try {
                 parser.DownloadPage(url,fileName);
                 break;
             } catch (IOException e) {
-                System.out.print("There is something wrong with your link. \n Type 'q' to exit \n Press any key... ");
+                System.out.print("There is something wrong with your link. \n Type 'q' to exit \n Press enter... ");
                 if (scanner.nextLine().equals("q")) return;
             }
         }
@@ -46,7 +47,7 @@ public class Application {
                 content = parser.Parse("Downloaded.html");
                 break;
             } catch (IOException e) {
-                System.out.print("There is something wrong with your downloaded file. \n Type 'q' to exit \n Press any key... ");
+                System.out.print("There is something wrong with your downloaded file. \n Type 'q' to exit \n Press enter... ");
                 if (scanner.nextLine().equals("q")) return;
             }
             System.out.println(content);
@@ -63,5 +64,8 @@ public class Application {
             Map.Entry<String, Integer> element = iterator.next();
             System.out.println(element.getKey() +"-"+element.getValue());
         }
+
+        System.out.print("Press enter...");
+        scanner.nextLine();
     }
 }
