@@ -34,7 +34,7 @@ public class Application {
             if(url==null){
                 System.out.println("\nEnter a page's URL");
                 url = scanner.nextLine();
-            }else System.out.println("Given URL: " + url);
+            }else System.out.println("\nGiven URL: " + url);
 
             try {
                 parser.DownloadPage(url,fileName);
@@ -51,7 +51,7 @@ public class Application {
         System.out.println("Parsing the page...");
         while (true) {
             try {
-                content = parser.Parse("Downloaded.html");
+                content = parser.Parse(fileName);
                 break;
             } catch (IOException e) {
                 System.out.print("There is something wrong with your downloaded file. \n Type 'q' to exit \n Press enter... ");
@@ -72,7 +72,7 @@ public class Application {
             System.out.println(element.getKey() +"-"+element.getValue());
         }
 
-        System.out.print("Press enter...");
+        System.out.print("\nPress enter...");
         scanner.nextLine();
     }
 }
