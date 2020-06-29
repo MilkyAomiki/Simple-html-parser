@@ -1,8 +1,11 @@
-package org.parser.analyzer;
+package org.web.page.analyzer;
 
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Handle splitting to words and counting them
+ */
 public class Analyzer {
     public Map<String, Integer> CountWords(String text){
         String[] words = text.split("[ ,.!?\";:\\[\\]()\n\r\t]");
