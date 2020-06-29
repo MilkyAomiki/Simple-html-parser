@@ -1,9 +1,7 @@
 package org.parser.analyzer;
 
-
 import java.io.*;
 import java.net.URL;
-import java.net.URLDecoder;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

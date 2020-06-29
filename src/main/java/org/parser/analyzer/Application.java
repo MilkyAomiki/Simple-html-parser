@@ -1,6 +1,5 @@
 package org.parser.analyzer;
 
-import java.io.Console;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
@@ -11,7 +10,7 @@ public class Application {
     {
         Scanner scanner = new Scanner(System.in);
         Map<String, Integer> countedWords;
-        Iterator iterator;
+        Iterator<Map.Entry<String, Integer>> iterator;
         Analyzer analyzer;
         Parser parser;
         String url;
@@ -47,9 +46,9 @@ public class Application {
         countedWords = analyzer.CountWords(content);
         iterator = countedWords.entrySet().iterator();
 
-        System.out.println("\n Words | Count");
+        System.out.println("\nWords | Count");
         while (iterator.hasNext()){
-            Map.Entry<String, Integer> element = (Map.Entry<String, Integer>)iterator.next();
+            Map.Entry<String, Integer> element = iterator.next();
 
             System.out.println(element.getKey() +"-"+element.getValue());
         }
