@@ -27,15 +27,22 @@ public class Application {
 
         //Getting an URL and downloading a page
         parser = new Parser();
+
+        url = args.length > 0?  args[0]: null;
         while (true)  {
-            System.out.println("\nEnter a Page's URL");
-            url = scanner.nextLine();
+
+            if(url==null){
+                System.out.println("\nEnter a page's URL");
+                url = scanner.nextLine();
+            }else System.out.println("Given URL: " + url);
+
             try {
                 parser.DownloadPage(url,fileName);
                 break;
             } catch (IOException e) {
                 System.out.print("There is something wrong with your link. \n Type 'q' to exit \n Press enter... ");
                 if (scanner.nextLine().equals("q")) return;
+                url=null;
             }
         }
         System.out.println("Downloaded");
